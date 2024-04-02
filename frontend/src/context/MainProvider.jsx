@@ -18,10 +18,10 @@ const MainProvider = ({children}) => {
           // console.log('resp',response.json())
         }
         getBalance()
-          user.then(data=>{
-          const name = data.username
-          console.log('bal',name)
-        })
+        //   user.then(data=>{
+        //   const name = data.username
+        //   console.log('bal',name)
+        // })
     },[])
     console.log('user', user)
 
