@@ -16,11 +16,12 @@ const userModel =new Schema({
     },
     emailVerified:{
         type: Boolean,
-        required:true
+        default: false
     },
     balance:{
         type: Number,
+        default: 0
     }
 })
 
-export const User = mongoose.connect('User', userModel)
+export const User = mongoose.model('User', userModel)

@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wheelBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wheel{
+    border: 2px solid white;
+    width: 80px;
+    border-radius: 100%;
+    background-color: white;
+    width: 30rem;
+    height: 30rem;
+}

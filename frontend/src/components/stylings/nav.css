@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: rgba(155, 8, 8, 0.772);
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav Link{
+    text-decoration: none;
+}
+
+#balance{
+    border: 2px solid black;
+    display: flex;
+}
+
+.navText{
+    text-decoration: none;
+    color: black;
+    padding: 1%;
+}
+
+.navText:hover{
+    color: white;
+}
