@@ -4,18 +4,58 @@
     box-sizing: border-box;
 }
 
+
+
+
 #wheelBox{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    position: relative;
+    
+
+}
+#wheel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #333;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #333,
+    0 0 0 15px #fff,
+    0 0 0 18px #111
+    }
+
+#wheelBox .spinBtn{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index:10;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#wheel{
-    border: 2px solid white;
-    width: 80px;
-    border-radius: 100%;
-    background-color: white;
-    width: 30rem;
-    height: 30rem;
+#wheel .drop{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: grey;
+    transform-origin: bottom right;
+
+}
+
+#wheelBox .spinBtn::before{
+    content: ' ';
+    position: absolute;
+    top: -28px;
+    width: 20px;
+    height: 30px;
+    background: #fff;
+    clip-path: polygon(50% 0%,15% 100%, 85% 100%);
 }
