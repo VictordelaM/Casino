@@ -7,42 +7,41 @@
 
 
 
-#wheelBox{
+#wheelBody{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-    position: relative;
-    
+}
 
+#wheelBox{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #wheel{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     background: #333;
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    overflow: hidden;
     box-shadow: 0 0 0 5px #333,
     0 0 0 15px #fff,
-    0 0 0 18px #111
+    0 0 0 18px #111,
+    
     }
 
-#wheelBox .spinBtn{
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: #fff;
-    border-radius: 50%;
-    z-index:10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 #wheel .drop{
     position: absolute;
+    align-self: center;
     width: 35px;
     height: 35px;
     background-color: grey;
@@ -58,4 +57,16 @@
     height: 30px;
     background: #fff;
     clip-path: polygon(50% 0%,15% 100%, 85% 100%);
+}
+
+#wheelBox .spinBtn{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index:10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

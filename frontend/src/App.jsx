@@ -3,9 +3,10 @@ import './App.css'
 import Register from './pages/Registration'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Games from './pages/games'
+import Games from './pages/Games'
 import CustomWheel from './pages/CustomWheel'
 import CashWheel from './pages/CashWheel'
+import Slot from './pages/Slot'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/games' element={<Games/>}/>
         <Route path='/customWheel' element={<CustomWheel/>}/>
         <Route path='/cashWheel' element={<CashWheel/>}/>
+        <Route path='/slot' element={<Slot/>}/>
       </Routes>
     </>
   )

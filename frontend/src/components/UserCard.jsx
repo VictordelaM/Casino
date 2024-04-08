@@ -1,14 +1,27 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { mainContext } from '../context/MainProvider'
 
-const UserCard = () => {
-    const {balance, username, email, emailVerified} = useContext(mainContext)
-    console.log(balance, username, email, emailVerified)
+const UserCard = () => {  
+  const [user, setUser] = useState([])
+  // const [username, setUsername] = useState("")
+  const username= 'sisi'
+  let verifiedSign = ''
+
+  useEffect(()=>{
+    fetch(import.meta.env.VITE_BACKEND_URL+'/user/'+username)
+    .then((response)=>response.json())
+    .then((json)=>{
+      setUser(json)
+    })
+  })
+  if(user.emailVerified==true){
+    verifiedSign = '✅'
+  }else{verifiedSign = '❌'}
   return (
     <div>
-        <p id="username">{username}</p>
-        <p id="email">{email}</p>
-        <p id="balance">{balance}</p>
+        <p id="username">{user.username}</p>
+        <p id="email">{user.email}  {verifiedSign}</p>
+        <p id="balance">{user.balance}</p>
     </div>
   )
 }
