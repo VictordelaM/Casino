@@ -56,8 +56,13 @@ const Slot = () => {
             line5:{number:5, line:k==g & g==c & c==i & i==o}
         }
 
-        if(linien.line1||linien.line2||linien.line3){return true}
-            else{return false}
+        if(linien.line1.line||linien.line2.line||linien.line3.line){
+            console.log(linien.line1,linien.line2,linien.line3)
+            return true
+        }
+            else{
+                return false
+            }
     }
 
     const winText = ()=>{
