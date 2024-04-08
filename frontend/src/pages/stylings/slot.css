@@ -8,4 +8,9 @@
     background-color: white;
     width: 300px;
     height: 200px;
+
+}
+
+#slots{
+    display: flex;
 }
