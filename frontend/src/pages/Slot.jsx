@@ -23,7 +23,6 @@ const Slot = () => {
            
         }
         let index = Math.ceil(Math.random() * cloumn.length)-1
-        //!müssen auch noch zu objekten gemacht haben die mult mit übergeben
         let resTop = cloumn[indexCheck(index-1)]
         let resMid =  cloumn[index]
         let resBot = cloumn[indexCheck(index+1)]
@@ -40,6 +39,7 @@ const Slot = () => {
 
 
     const winCheck = (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=>{
+        let winningLines = []
         let linien= {
             line1:{number:1, line:f.value==g.value & g.value==h.value & h.value==i.value & i.value==j.value}, 
             line2:{number:2, line:a.value==b.value & b.value==c.value & c.value==d.value & d.value==e.value},
@@ -49,15 +49,16 @@ const Slot = () => {
         }
         // if(linien.line1.line||linien.line2.line||linien.line3.line){return true}
         //     else{return false}
-        if(linien.line1.line){return [f,g,h,i,j]}
-        else if(linien.line2.line){return [a,b,c,d,e]}
-        else if(linien.line3.line){return[k,l,m,n,o]}
-        else{return false}
+        if(linien.line1.line){winningLines.push({line:'line1',elements:[f,g,h,i,j]})}
+        else if(linien.line2.line){winningLines.push({line:'line1',elements:[a,b,c,d,e]})}
+        else if(linien.line3.line){winningLines.push({line:'line2',elements:[k,l,m,n,o]})}
+        return winningLines
     }
 
 
     const winText = ()=>{
-        if(winCheck(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)){return 'U won'}
+        console.log('check:',winCheck(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o))
+        if(winCheck(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o).length>0){return 'U won'}
         else{return'U lost'}}
 
   return (
