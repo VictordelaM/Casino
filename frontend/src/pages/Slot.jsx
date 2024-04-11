@@ -6,6 +6,7 @@ import { fillSlotArray } from './fillSlotArray'
 
 
 const Slot = () => {
+    
     //ideen für attribute:    Effekte, 
     // let cloumn1 = [{value:0,mult:1},{value:0,mult:1},{value:1,mult:1},{value:2,mult:1}]
     // let cloumn2 = [{value:0,mult:1},{value:0,mult:1},{value:1,mult:1},{value:2,mult:1}]
@@ -19,7 +20,7 @@ const Slot = () => {
     let cloumn5 = fillSlotArray()
 
     //wählt ein random ergebnis aus einer "cloumn" und gibt sie mit ihren nachbarergebnissen aus
-    const rand = (cloumn)=>{
+    const play = ()=>{const rand = (cloumn)=>{
         const indexCheck=(i)=>{
             if(i>=cloumn.length){
                 const res = i - cloumn.length
@@ -110,51 +111,17 @@ const checkPoints=()=>{
                 points += slot.value 
             })
         }
-       
-
         
     })
     return points
 }
+}
 
 
-
-    // const winCheck = (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o)=>{
-    //     let winningLines = []
-    //     let linien= {
-    //         line1:{number:1, line:f.value==g.value & g.value==h.value & h.value==i.value & i.value==j.value}, 
-    //         line2:{number:2, line:a.value==b.value & b.value==c.value & c.value==d.value & d.value==e.value},
-    //         line3:{number:3, line:k.value==l.value & l.value==m.value & m.value==n.value & n.value==o.value},
-    //         line4:{number:4, line:a.value==g.value & g.value==m.value & m.value==i.value & i.value==e.value},
-    //         line5:{number:5, line:k.value==g.value & g.value==c.value & c.value==i.value & i.value==o.value},
-    //         line6:{number:6, line:f.value==b.value & b.value==c.value & c.value==d.value & d.value==j.value},
-    //         line7:{number:7, line:f.value==l.value & l.value==m.value & m.value==n.value & n.value==o.value},
-    //         line8:{number:8, line:a.value==b.value & b.value==h.value & h.value==n.value & n.value==o.value},
-    //         line9:{number:9, line:k.value==l.value & l.value==h.value & h.value==d.value & d.value==e.value},
-    //     }
-    //     if(linien.line1.line){winningLines.push({line:'line1',elements:[f,g,h,i,j]})}
-    //     if(linien.line2.line){winningLines.push({line:'line2',elements:[a,b,c,d,e]})}
-    //     if(linien.line3.line){winningLines.push({line:'line3',elements:[k,l,m,n,o]})}
-    //     if(linien.line4.line){winningLines.push({line:'line4',elements:[a,g,m,i,e]})}
-    //     if(linien.line5.line){winningLines.push({line:'line5',elements:[k,g,c,i,o]})}
-    //     if(linien.line6.line){winningLines.push({line:'line6',elements:[f,b,c,d,j]})}
-    //     if(linien.line7.line){winningLines.push({line:'line7',elements:[f,l,m,n,o]})}
-    //     if(linien.line8.line){winningLines.push({line:'line8',elements:[a,b,h,n,o]})}
-    //     if(linien.line9.line){winningLines.push({line:'line9',elements:[k,l,h,d,e]})}
-
-    //     return winningLines
-    // }
-
-
-    const winText = ()=>{
-        return 'test'
-        // if(winCheck(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o).length>0){return 'U won'}
-        // else{return'U lost'}
-    }
-
+play()
 return (
     <>
-    <Nav/>
+    <Nav/>vi
     <div id='slotBox'>
         <div id='slots'>
             <div id="col1" className="slotCol">
@@ -183,6 +150,7 @@ return (
                 <div id="slotBot" className="slot">{o.imgUrl}</div>
             </div>
         </div>
+        <button onClick={play}>play</button>
         <div className='slot' id="wintext">{checkPoints()}</div>
         {/* <div id="wintext">{winCheck().map((e)=>{
             return e.line

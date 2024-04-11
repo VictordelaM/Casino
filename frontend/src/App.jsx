@@ -7,6 +7,7 @@ import Games from './pages/Games'
 import CustomWheel from './pages/CustomWheel'
 import CashWheel from './pages/CashWheel'
 import Slot from './pages/Slot'
+import SlotCard from './pages/SlotCard'
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
         <Route path='/games' element={<Games/>}/>
         <Route path='/customWheel' element={<CustomWheel/>}/>
         <Route path='/cashWheel' element={<CashWheel/>}/>
-        <Route path='/slot' element={<Slot/>}/>
+        <Route path='/slot' element={<SlotCard/>}/>
+        
       </Routes>
     </>
   )

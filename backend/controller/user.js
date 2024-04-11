@@ -22,7 +22,6 @@ userRouter.post("/register", mult.none(), async (req,res)=>{
 })
 
 userRouter.post("/login",mult.none(), async(req,res)=>{
-    console.log("test")
     const {username, password} = req.body
     if(!username || !password){
         res.sendStatus(403)
@@ -40,18 +39,17 @@ userRouter.post("/login",mult.none(), async(req,res)=>{
     }
     const token = jwt.sign({username}, process.env.JWT_SECRET)
     console.log("hat geklappt")
+    console.log(token)
     res.cookie("token", token)
     res.json({status: 'ok', token: token})
 })
 
 userRouter.use(express.json());
 
-userRouter.get('/getData', async(req,res)=>{
-    console.log("test")
-    const username = 'haha'
-    const accounts = await db.collection("users").findOne();
-    console.log(accounts)
-    res.json(accounts)
+userRouter.get('/:username', async(req,res)=>{
+    const username = req.params.username
+    const user = await User.findOne({username}).lean();
+    res.json(user)
 })
 
 
@@ -74,3 +72,4 @@ userRouter.get("/:name",  async (req, res)=>{
     const user = await User.findOne({username},{password: 0})
     res.json(user)
 })
+

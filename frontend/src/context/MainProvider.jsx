@@ -5,9 +5,10 @@ export const mainContext = createContext()
 const MainProvider = ({children}) => {
     const [user, setUser] = useState()
     const [balance, setBalance] = useState(0)
-    const [username, setUsername] = useState("sisi")
+    const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [emailVerified, setEmailVerified] = useState(false)
+    const [token, setToken] = useState(null)
     // useEffect(()=>{
     //     const getBalance = async ()=>{
     //       const name = "sisi"

@@ -8,12 +8,9 @@ const PORT = 3000
 config({path:'./.env'})
 const app = express()
 
-console.log(process.env.MONGODB_URI)
-
-
 await mongoose.connect(process.env.MONGODB_URI)
 
-app.use(cors({origin: "http://localhost:5174"}))
+app.use(cors({origin: "http://localhost:5173"}))
 app.use("/user", userRouter)
 
 
