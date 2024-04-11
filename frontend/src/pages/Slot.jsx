@@ -3,6 +3,8 @@ import Nav from '../components/Nav'
 import './stylings/slot.css'
 import { fillSlotArray } from './fillSlotArray'
 
+
+
 const Slot = () => {
     //ideen für attribute:    Effekte, 
     // let cloumn1 = [{value:0,mult:1},{value:0,mult:1},{value:1,mult:1},{value:2,mult:1}]
@@ -51,7 +53,6 @@ const Slot = () => {
     //checkt ob ergebnisse sich wiederholen und speichert sie in einem array wenn sie sich wiederholen
     const rowArray=([col1, col2, col3, col4, col5],name)=>{
         let row = [col1]
-        console.log([col1, col2, col3, col4, col5],name)
         if(col1.name == col2.name ){
             
             row.push(col2)
@@ -62,7 +63,7 @@ const Slot = () => {
                     if(col1.name ==col5.name ){
                         row.push(col5)
                     }}}}
-        return {row: name, array:row}
+        return {row: name, array:row, win:null}
     }
 
     //definiert die linien auf denen gewinnchancen sind
@@ -84,16 +85,37 @@ const Slot = () => {
             combinedLines.push(rowArray(line.line, i))
             i++
         })
-        console.log(combinedLines)
         return combinedLines
     }
-checkRow(lines)
-    const executeChecks = (lines)=>{
-        lines.map((line)=>{
-            rowArray(line.line)
-
+    
+const combinedLines = checkRow(lines)
+console.log(1,combinedLines)
+    const checkWin = (combinedLines) =>{
+        combinedLines.map((line)=>{
+            if(line.array[0].required <= line.array.length){
+                line.win=true
+            }
         })
     }
+checkWin(combinedLines)
+
+const checkPoints=()=>{
+    let points = 0
+
+    combinedLines.map((line)=>{
+
+        if(line.win==true){
+            console.log('test')
+            line.array.map((slot)=>{
+                points += slot.value 
+            })
+        }
+       
+
+        
+    })
+    return points
+}
 
 
 
@@ -161,7 +183,7 @@ return (
                 <div id="slotBot" className="slot">{o.imgUrl}</div>
             </div>
         </div>
-        <div className='slot' id="wintext">{winText()}</div>
+        <div className='slot' id="wintext">{checkPoints()}</div>
         {/* <div id="wintext">{winCheck().map((e)=>{
             return e.line
         })}wins</div> */}
